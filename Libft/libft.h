@@ -30,5 +30,19 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncat(char *dest, const char *src, size_t n);
-  
+ft_strlcat.c
+ft_strchr.c
+ft_strrchr.c
+ft_strstr.c
+ft_strnstr.c
+ft_strcmp.c
+ft_strncmp.c
+ft_atoi.c
+ft_isalpha.c
+ft_isdigit.c
+ft_isalnum.c
+ft_isascii.c
+ft_isprint.c
+ft_toupper.c
+ft_tolower.c
 #endif
