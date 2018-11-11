@@ -12,12 +12,14 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
+#include <bsd/string.h>
 #include "ft_memset.c"
 #include "ft_bzero.c"
 
 int main(int ac, char **av)
 {
-	char c[100];
+/*	char c[100];
 //	printf("%s\n", (char *)ft_memset(c,90,5));
 
 	(void)ac;
@@ -27,5 +29,14 @@ int main(int ac, char **av)
 	write(1, "\n",1);
 	bzero(c, 5);
 	write(1, c,5);
-	return (0);
+*/
+
+char dst[]="ab";
+char src[]="bc";
+size_t size=4;
+
+
+printf("return %d\n", strlcat(dst, src, size));
+printf("dest : %s\n", dst);
+return (0);
 }
