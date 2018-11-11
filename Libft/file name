@@ -1,55 +1,29 @@
-ft_memset.c
-•
-ft_bzero.c
-•
-ft_memcpy.c
-•
-ft_memccpy.c
-•
-ft_memmove.c
-•
-ft_memchr.c
-•
-ft_memcmp.c
-•
-ft_strlen.c
-•
-ft_strdup.c
-•
-ft_strcpy.c
-•
-ft_strncpy.c
-•
-ft_strcat.c
-•
-ft_strncat.c
-•
-ft_strlcat.c
-•
-ft_strchr.c
-•
-ft_strrchr.c
-•
-ft_strstr.c
-•
-ft_strnstr.c
-•
-ft_strcmp.c
-•
-ft_strncmp.c
-•
-ft_atoi.c
-•
-ft_isalpha.c
-•
-ft_isdigit.c
-•
-ft_isalnum.c
-•
-ft_isascii.c
-•
-ft_isprint.c
-•
-ft_toupper.c
+emacs ft_memset.c ;
+emacs ft_bzero.c ;
+emacs ft_memcpy.c ;
+emacs ft_memccpy.c ;
+emacs ft_memmove.c ;
+emacs ft_memchr.c ;
+emacs ft_memcmp.c ;
+emacs ft_strlen.c ;
+emacs ft_strdup.c ;
+emacs ft_strcpy.c ;
+emacs ft_strncpy.c ;
+emacs ft_strcat.c ;
+emacs ft_strncat.c ;
+emacs ft_strlcat.c ;
+emacs ft_strchr.c ;
+emacs ft_strrchr.c ;
+emacs ft_strstr.c ;
+emacs ft_strnstr.c ;
+emacs ft_strcmp.c ;
+emacs ft_strncmp.c ;
+emacs ft_atoi.c ;
+emacs ft_isalpha.c ;
+emacs ft_isdigit.c ;
+emacs ft_isalnum.c ;
+emacs ft_isascii.c ;
+emacs ft_isprint.c ;
+emacs ft_toupper.c ;
+emacs ft_tolower.c ;
 
-ft_tolower.c
