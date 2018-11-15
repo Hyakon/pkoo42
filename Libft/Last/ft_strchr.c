@@ -1,7 +1,7 @@
 #include <string.h>
 #include "libft.h"
 
-char	*st_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
   while (*s)
     {
