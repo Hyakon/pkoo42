@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 18:48:42 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/16 18:26:49 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/16 18:27:35 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+void	ft_putchar_fd(char c, int fd)
 {
-	char *str;
-
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s));
-	while (*s)
-		s++;
-	return (str);
+	write(fd, &c, 1);
 }

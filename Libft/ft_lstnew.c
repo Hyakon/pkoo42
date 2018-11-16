@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 18:48:42 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/16 19:12:23 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/16 19:13:33 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+t_list  *ft_lsttmp(void const *content, size_t content_size)
 {
-	char *str;
+  t_list *tmp;
 
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s));
-	while (*s)
-		s++;
-	return (str);
+  tmp = (t_list *)malloc(sizeof(t_list));
+  if (tmp == NULL)
+    return(NULL);
+  if (content == NULL)
+  {
+      tmp->content = NULL;
+      tmp->content_size = 0;
+      return (tmp);
+  }
+  tmp->content = (void *)content;
+  tmp->content_size = content_size;
+  return (tmp);
 }

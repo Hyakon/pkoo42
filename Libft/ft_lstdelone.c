@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 18:48:42 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/16 19:12:57 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/16 19:13:03 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+void  ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	char *str;
-
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s));
-	while (*s)
-		s++;
-	return (str);
+  del((*alst)->content, (*alst)->content_size);
+  free(*alst);
+  *alst = NULL;
 }

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 18:48:42 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/16 18:31:26 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/16 18:41:53 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char *str;
-
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s));
-	while (*s)
-		s++;
-	return (str);
+	if (n >= 10 || n <= -10)
+		ft_putnbr_fd(n / 10, fd);
+	else if (n < 0)
+		ft_putchar_fd('-', fd);
+	ft_putchar_fd(n % 10 * (n < 0 ? -1 : 1) + '0', fd);
 }
