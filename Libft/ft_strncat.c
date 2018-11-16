@@ -6,18 +6,18 @@
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:31:33 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/13 15:34:49 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/16 16:05:10 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strncat(char *dest, const char *src, size_t n)
 {
 	size_t dest_len;
 	size_t i;
 
-	dest_len = strlen(dest);
+	dest_len = ft_strlen(dest);
 	i = 0;
 	while (i < n && src[i] != '\0')
 	{

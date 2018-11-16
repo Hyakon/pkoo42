@@ -6,13 +6,13 @@
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:33:08 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/13 17:25:33 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/16 15:34:57 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
-{
-	return (n);
-}
+/* size_t	ft_strlcat(char *dest, const char *src, size_t n) */
+/* { */
+/* 	return (n); */
+/* } */

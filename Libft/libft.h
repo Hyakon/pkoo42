@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:43:18 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/13 15:56:33 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/16 14:53:15 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncat(char *dest, const char *src, size_t n);
 size_t	ft_strlcat(char *dest, const char *src, size_t n);
-/* ft_strchr.c */
-/* ft_strrchr.c */
-/* ft_strstr.c */
-/* ft_strnstr.c */
-/* ft_strcmp.c */
-/* ft_strncmp.c */
+char	*ft_strchr(const char *s, int c);
+char	*ft_strstr(const char *haystack, const char *needle);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr (const char *big, const char *little, size_t len);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *str);
 int		ft_isspace(int c);
 int		ft_islower(int c);
@@ -48,5 +48,20 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_iswhitespaces(char c);
+void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+void	ft_strclr(char *s);
+void	ft_strdel (char **as);
+int		ft_strequ(char const *s1, char const *s2);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strmap(char *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+char	*ft_strnew(size_t size);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strtrim(char const *s);
 
 #endif
