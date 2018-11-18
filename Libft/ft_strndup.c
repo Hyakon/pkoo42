@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/18 22:50:10 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/18 22:45:02 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/18 23:03:27 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char    *ft_strndup(const char *s, size_t n)
 {
 	char	*str;
-	size_t	i;
-	size_t	len;
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	len = ft_strlen(s) - 1;
-	while(ft_iswhitespaces(s[len]))
-		len--;
-	str = (char *)malloc(sizeof(char) * (len + 2));
-	i = 0;
-	ft_strncpy(str, s, len + 1);
-	str[len + 2] = '\0';
+    size_t  len;
+
+    len = ft_strlen(s);
+    if (len > n)
+	   str = (char *)malloc(sizeof(char) * (n + 1));
+    else
+   		str = (char *)malloc(sizeof(char) * (n));
+	if (str == NULL)
+		return (str);
+	if (len > n)
+		str[n + 1] = '\0';
+   	str[n] = s[n];
+    while (n--)
+		str[n] = s[n];
 	return (str);
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/18 22:50:10 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/18 23:07:43 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/18 23:13:30 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strtrim(char const *s)
+void ft_freetab(void *tab, size_t size)
 {
-	char	*str;
-	size_t	i;
-	size_t	len;
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	len = ft_strlen(s) - 1;
-	while(ft_iswhitespaces(s[len]))
-		len--;
-	str = (char *)malloc(sizeof(char) * (len + 2));
-	i = 0;
-	ft_strncpy(str, s, len + 1);
-	str[len + 2] = '\0';
-	return (str);
+    while(size--)
+    {
+        free(tab[size]);
+    }
 }
