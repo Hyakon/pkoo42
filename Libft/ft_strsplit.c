@@ -6,13 +6,13 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/18 23:05:57 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/19 16:53:58 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ccountword(const char *s, char c)
+static int		ccountword(const char *s, char c)
 {
 	int i;
 
