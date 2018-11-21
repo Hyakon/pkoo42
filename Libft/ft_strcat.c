@@ -13,20 +13,20 @@
 #include <string.h>
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	size_t len;
 	size_t i;
 	size_t j;
 
 	j = 0;
-	i = ft_strlen(dest);
-	len = i + ft_strlen(src);
+	i = ft_strlen(s1);
+	len = i + ft_strlen(s2);
 	while (i < len)
 	{
-		dest[i] = src[j++];
+		s1[i] = s2[j++];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	s1[i] = '\0';
+	return (s1);
 }

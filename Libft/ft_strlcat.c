@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t len_dst;
 	size_t len_src;
 
-	len_dst = ft_strlen(dest);
+	len_dst = ft_strlen(dst);
 	len_src = ft_strlen(src);
-	if (len_dst >= n)
-		return (len_src + n);
-	ft_strncpy(dest + len_dst, (void *)src, n - len_dst);
-	dest[n - 1] = '\0';
+	if (len_dst >= size)
+		return (len_src + size);
+	ft_strncpy(dst + len_dst, (void *)src, size - len_dst);
+	dst[size - 1] = '\0';
 	return (len_dst + len_src);
 }
