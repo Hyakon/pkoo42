@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:45:46 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 15:07:41 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:27:38 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	unsigned int i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (*s)
 	{
 		f(i, s);

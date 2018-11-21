@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 16:44:56 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:25:30 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ char			**ft_strsplit(char const *s, char c)
 	int		i;
 	size_t	len;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	word = ccountword(s, c);
 	if ((res = (char **)malloc(sizeof(char *) * word + 1)) == NULL)

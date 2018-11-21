@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 17:09:13 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:25:54 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s)
 	size_t	i;
 	size_t	len;
 
+	if (!s)
+		return (NULL);
 	while (s && *s && ft_iswhitespaces(*s))
 		s++;
 	len = ft_strlen(s);

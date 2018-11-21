@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:46:05 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 16:56:25 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:25:14 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		size;
 	char	*new;
 
+	if (!s1 || !s2)
+		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	new = (char *)malloc(sizeof(char) * size);
 	if (new == NULL)
