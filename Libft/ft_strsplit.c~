@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/19 16:53:58 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 15:41:16 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ static int		ccountword(const char *s, char c)
 	while (*s)
 	{
 		if (*s == c)
-			{
-				i++;
-				while(*s == c)
-					s++;
-				if (*s == '\0')
-					return (i);
-			}
+		{
+			i++;
+			while (*s == c)
+				s++;
+			if (*s == '\0')
+				return (i);
+		}
 		s++;
 	}
 	return (i);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int		word;
 	char	**res;
@@ -45,20 +45,17 @@ char	**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	word = ccountword(s, c);
-	res = (char **)malloc(sizeof(char *) * word + 1);
-	if (res == NULL)
+	if ((res = (char **)malloc(sizeof(char *) * word + 1)) == NULL)
 		return (NULL);
 	res[word + 1] = 0;
-	while(*s)
+	while (*s)
 	{
 		len = ft_strlenc(s, c);
 		res[i] = ft_strndup(s, len);
 		if (res[i] == NULL)
 		{
-			while (i--)
-				free(res[i]);
-			free(res);
-			return(NULL);
+			ft_freetab(tab, i);
+			return (NULL);
 		}
 		s += len;
 		i++;

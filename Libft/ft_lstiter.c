@@ -6,9 +6,11 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:05:30 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:48:46 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 16:00:34 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {

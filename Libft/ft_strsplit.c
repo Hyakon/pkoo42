@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:41:16 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 16:02:21 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ static int		ccountword(const char *s, char c)
 	return (i);
 }
 
+static int		ft_strlenc(const char *s, char c)
+{
+	int i;
+
+	i = 0;
+	while (*s && *s != c)
+		i++;
+	return (i);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	int		word;
@@ -54,7 +64,7 @@ char			**ft_strsplit(char const *s, char c)
 		res[i] = ft_strndup(s, len);
 		if (res[i] == NULL)
 		{
-			ft_freetab(tab, i);
+			ft_freetab((void *)res, i);
 			return (NULL);
 		}
 		s += len;
@@ -62,3 +72,13 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	return (res);
 }
+
+
+
+
+
+
+
+
+
+

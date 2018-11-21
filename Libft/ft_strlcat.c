@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:33:08 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:47:01 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 15:58:41 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	len_src = ft_strlen(src);
 	if (len_dst >= n)
 		return (len_src + n);
-	memcpy(dst + len_dst, src, n - len_dst);
+	memcpy(dest + len_dst, src, n - len_dst);
 	dest[n] = '\0';
 	return (len_dst + len_src);
 }

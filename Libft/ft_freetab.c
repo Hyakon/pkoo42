@@ -6,11 +6,13 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/18 23:07:43 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:53:45 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 16:01:13 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_freetab(void *tab, size_t size)
+#include "libft.h"
+
+void	ft_freetab(void **tab, size_t size)
 {
 	while (size--)
 	{
