@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 17:25:30 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:44:18 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ static int		ft_strlenc(const char *s, char c)
 	return (i);
 }
 
+static void		ft_init(int *i, int *word, char const *s, char c)
+{
+	*i = 0;
+	*word = ccountword(s, c);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	int		word;
@@ -58,8 +64,7 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	word = ccountword(s, c);
+	ft_init(&i, &word, s, c);
 	if ((res = (char **)malloc(sizeof(char *) * word + 1)) == NULL)
 		return (NULL);
 	while (*s)
@@ -68,13 +73,12 @@ char			**ft_strsplit(char const *s, char c)
 			s++;
 		len = ft_strlenc(s, c);
 		res[i] = ft_strndup(s, len);
-		if (res[i] == NULL)
+		if (res[i++] == NULL)
 		{
-			ft_freetab((void *)res, i);
+			ft_freetab((void *)res, --i);
 			return (NULL);
 		}
 		s += len;
-		i++;
 	}
 	res[word] = 0;
 	return (res);

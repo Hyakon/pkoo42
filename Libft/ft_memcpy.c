@@ -6,7 +6,7 @@
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:46:09 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 17:05:00 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:30:30 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char		*res;
 	const char	*str;
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	res = (char *)dest;
