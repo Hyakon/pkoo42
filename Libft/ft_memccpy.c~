@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:41:44 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/09 15:47:08 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/13 16:03:04 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
+	char	*res;
 	char	*str;
 	size_t	i;
-	size_t	len;
 
-	while (s && ft_iswhitespaces(*s))
-		s++;
-	len = ft_strlen(s) - 1;
-	while (ft_iswhitespaces(s[len]))
-		len--;
-	str = (char *)malloc(sizeof(char) * (len + 2));
 	i = 0;
-	ft_strncpy(str, s, len + 1);
-	str[len + 2] = '\0';
-	return (str);
+	res = (char *)dest;
+	str = (char *)src;
+	while (i < n)
+	{
+		res[i] = str[i];
+		if (str[i++] == c)
+		{
+		  return ((void *)&(res[i]));
+		}
+	}
+	return (NULL);
 }

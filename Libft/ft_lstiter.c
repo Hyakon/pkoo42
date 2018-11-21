@@ -6,15 +6,15 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:05:30 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/19 17:07:06 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 15:48:46 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-    while(lst)
-    {
-        f(lst);
-        lst = lst->next;
-    }
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

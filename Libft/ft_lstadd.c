@@ -6,12 +6,12 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:02:56 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/19 17:04:29 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 15:53:11 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-    new->next = *alst;
-    *alst = new;
+	new->next = *alst;
+	*alst = new;
 }

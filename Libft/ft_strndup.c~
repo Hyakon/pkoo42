@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freetab.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/18 23:07:43 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:53:45 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/18 22:45:02 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/21 15:42:41 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_freetab(void *tab, size_t size)
+#include "libft.h"
+
+char    *ft_strndup(const char *s, size_t n)
 {
-	while (size--)
-	{
-		free(tab[size]);
-	}
+	return (ft_strsub(s, 0, n));
 }
