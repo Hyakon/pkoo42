@@ -6,7 +6,7 @@
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:47:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/09 16:00:06 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:04:00 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,17 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		tmp[n];
 	char		*res;
 	const char	*str;
-	size_t		i;
 
-	i = 0;
 	res = (char *)dest;
-	str = (char *)src;
-	while (i < n)
+	str = (const char *)src;
+	if (dest < src)
+		ft_memcpy(dest, src, n);
+	else
 	{
-		tmp[i] = str[i];
-		i++;
-	}
-	i = 0;
-	while (i < n)
-	{
-		res[i] = tmp[i];
-		i++;
+		while (n--)
+			res[n] = str[n];
 	}
 	return (dest);
 }

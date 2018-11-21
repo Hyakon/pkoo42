@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:02:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 16:02:21 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 16:44:56 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static int		ccountword(const char *s, char c)
 		s++;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s != c)
 		{
 			i++;
-			while (*s == c)
+			while (*s != c && *s)
 				s++;
 			if (*s == '\0')
 				return (i);
@@ -42,7 +42,10 @@ static int		ft_strlenc(const char *s, char c)
 
 	i = 0;
 	while (*s && *s != c)
+	{
 		i++;
+		s++;
+	}
 	return (i);
 }
 
@@ -57,9 +60,10 @@ char			**ft_strsplit(char const *s, char c)
 	word = ccountword(s, c);
 	if ((res = (char **)malloc(sizeof(char *) * word + 1)) == NULL)
 		return (NULL);
-	res[word + 1] = 0;
 	while (*s)
 	{
+		while (*s == c)
+			s++;
 		len = ft_strlenc(s, c);
 		res[i] = ft_strndup(s, len);
 		if (res[i] == NULL)
@@ -70,15 +74,6 @@ char			**ft_strsplit(char const *s, char c)
 		s += len;
 		i++;
 	}
+	res[word] = 0;
 	return (res);
 }
-
-
-
-
-
-
-
-
-
-

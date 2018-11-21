@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:49:39 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:41:44 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:09:13 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ char	*ft_strtrim(char const *s)
 	size_t	i;
 	size_t	len;
 
-	while (s && ft_iswhitespaces(*s))
+	while (s && *s && ft_iswhitespaces(*s))
 		s++;
-	len = ft_strlen(s) - 1;
-	while (ft_iswhitespaces(s[len]))
+	len = ft_strlen(s);
+	while (ft_iswhitespaces(s[len - 1]) && len > 0)
 		len--;
-	str = (char *)malloc(sizeof(char) * (len + 2));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
 	ft_strncpy(str, s, len + 1);
-	str[len + 2] = '\0';
+	str[len] = '\0';
 	return (str);
 }

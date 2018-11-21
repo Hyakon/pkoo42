@@ -6,7 +6,7 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:48:07 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/16 15:03:37 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 17:07:21 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*ft_strnew(size_t size)
 {
 	char *new;
 
-	new = (char *)malloc(sizeof(char) * size);
+	new = (char *)malloc(sizeof(char) * (size + 1));
 	if (new == NULL)
 		return (NULL);
-	while (size--)
-		new[size] = '\0';
+	while (size)
+		new[size--] = '\0';
 	new[size] = '\0';
 	return (new);
 }

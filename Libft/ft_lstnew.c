@@ -6,13 +6,13 @@
 /*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:12:23 by pkoo              #+#    #+#             */
-/*   Updated: 2018/11/21 15:50:39 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/11/21 16:46:51 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lsttmp(void const *content, size_t content_size)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *tmp;
 
@@ -25,7 +25,10 @@ t_list	*ft_lsttmp(void const *content, size_t content_size)
 		tmp->content_size = 0;
 		return (tmp);
 	}
-	tmp->content = (void *)content;
+	tmp->content = (void *)malloc(sizeof(content_size));
+	if (tmp->content == NULL)
+		return (NULL);
+	tmp->content = ft_memmove(tmp->content, content, content_size);
 	tmp->content_size = content_size;
 	return (tmp);
 }
