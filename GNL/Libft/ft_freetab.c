@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: pkoo <pkoo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 16:40:06 by pkoo              #+#    #+#             */
-/*   Updated: 2018/12/03 16:09:54 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/18 23:07:43 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/21 16:01:13 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#include "libft.h"
 
-
-# define BUFF_SIZE 4096
-# include "../LibftFinal/libft.h"
-# include <fcntl.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+void	ft_freetab(void **tab, size_t size)
+{
+	while (size--)
+	{
+		free(tab[size]);
+	}
+}

@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_ccountword.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 16:40:06 by pkoo              #+#    #+#             */
-/*   Updated: 2018/12/03 16:09:54 by pkoo             ###   ########.fr       */
+/*   Created: 2018/11/23 14:32:31 by pkoo              #+#    #+#             */
+/*   Updated: 2018/11/23 14:38:35 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#include "libft.h"
 
+int		ft_ccountword(const char *s, char c)
+{
+	int i;
 
-# define BUFF_SIZE 4096
-# include "../LibftFinal/libft.h"
-# include <fcntl.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	if (!s)
+		return (i);
+	while (*s == c)
+		s++;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			i++;
+			while (*s != c && *s)
+				s++;
+			if (*s == '\0')
+				return (i);
+		}
+		s++;
+	}
+	return (i);
+}
