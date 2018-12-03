@@ -6,7 +6,7 @@
 /*   By: pkoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 16:40:06 by pkoo              #+#    #+#             */
-/*   Updated: 2018/12/03 17:43:01 by pkoo             ###   ########.fr       */
+/*   Updated: 2018/12/03 17:46:56 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define	GET_NEXT_LINE_H
 
 
-# define BUFF_SIZE 5
+# define BUFF_SIZE 1
 # include "Libft/libft.h"
 # include <fcntl.h>
 
