@@ -6,44 +6,46 @@
 /*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 09:20:36 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/18 11:50:21 by gfestin          ###   ########.fr       */
+/*   Updated: 2018/12/20 15:26:38 by gfestin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		del(char **tetri)
+int		max(int i, int j)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		if (tetri[i] != NULL)
-			free(tetri[i]);
-		i++;
-	}
+	return (i > j ? i : j);
 }
 
-void		lstdel(t_tri **tetrilist)
+char **is_valid(char **mat, char **tetri)
 {
-	t_tri	*tmp;
-	t_tri	*next;
+	return ();
+}
 
-	if (*tetrilist == NULL)
-		return ;
-	tmp = *tetrilist;
-	next = (*tetrilist)->next;
-	while (next != NULL)
+/*
+
+	Fonction de check placement
+	Fonction de placement
+	On place les tetriminos sur la droite
+	On depill et on les place sur la gauche un par un (en dessous)
+	en boucle.
+
+	On commence au le place un tetrimos et on place tout les
+	autre tetriminos de la liste sauf celui qu'on vient de placer en premier.
+
+*/
+void	backtrack(t_tri *tetrilist)
+{
+	char	matmp[26 * 4][26 * 4];
+	char	matfi[26 * 4][26 * 4];
+	t_tri	*tmp;
+	int		max;
+
+	tmp = tetrilist;
+	while (tmp != NULL)
 	{
-		del(tmp->tetri);
-		free(tmp);
-		tmp = next;
-		next = next->next;
+		tmp = tmp->next;
 	}
-	del(tmp->tetri);
-	free(tmp);
-	*tetrilist = NULL;
 }
 
 void	fillit(const char *file)
@@ -68,10 +70,6 @@ void	fillit(const char *file)
 		ft_putendl(" -- ");
 		tetrilist = tetrilist->next;
 	}
-	if (!tetricheck(tetrilist))
-	{
-		ft_putendl("error");
-		return ;
-	}
+	backtrack(tetrilist);
 	lstdel(&tetrilist);
 }

@@ -6,7 +6,7 @@
 /*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:17:14 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/18 14:53:43 by gfestin          ###   ########.fr       */
+/*   Updated: 2018/12/20 15:11:41 by gfestin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,82 @@ static t_tri	*new_tetri(void)
 	return (newt);
 }
 
+static int		tetrifillit(int *i, t_tri **tetrilist, t_tri **begin, char *line,
+		int *num)
+{
+	if (*i == 1)
+	{
+		if (!(*tetrilist = new_tetri()))
+		{
+			lstdel(tetrilist);
+			ft_putendl("new_tetri: fail");
+			return (0);
+		}
+		*begin = *tetrilist;
+	}
+	else if (*i % 5 == 0)
+	{
+		if (!((*tetrilist)->next = new_tetri()))
+		{
+			lstdel(tetrilist);
+			ft_putendl("new_tetri: fail");
+			return (0);
+		}
+		*tetrilist = (*tetrilist)->next;
+	}
+	if (*i % 5 != 0)
+	{
+		(*tetrilist)->tetri[*i % 5 - 1] = line;
+		if (*i % 5 == 4)
+		{
+			if (!tetricheck(*tetrilist, *num))
+			{
+				lstdel(tetrilist);
+				ft_putendl("tetricheck: fail");
+				return (0);
+			}
+			(*num)++;
+		}
+	}
+	return (42);
+}
+
 int				tetrifill(t_tri **tetrilist, const char *file)
 {
 	int		fd;
 	char	*line;
 	int		ret;
 	int		i;
+	t_tri	*begin;
+	int		num;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 	{
 		ft_putendl("open: fail");
 		return (0);
 	}
-	i = 0;
+	num = -1;
+	i = 1;
 	while ((ret = get_next_line(fd, &line)) == 1)
 	{
-		if (i % 5 == 0)
-		{
-			if (!(*tetrilist = new_tetri()))
-			{
-				lstdel(tetrilist);
-				ft_putendl("new_tetri: fail");
-				return (0);
-			}
-		}
-		if (i % 5 != 4)
-			(*tetrilist)->tetri[i % 5] = line;
-		else
-			*tetrilist = (*tetrilist)->next;
+		if (!(tetrifillit(&i, tetrilist, &begin, line, &num)))
+			return (0);
 		i++;
+	}
+	ft_putstr("i = ");
+	ft_putnbr(i);
+	ft_putchar('\n');
+	ft_putstr("num = ");
+	ft_putnbr(num);
+	ft_putchar('\n');
+	ft_putstr("(i - 1 - num) % 4 = ");
+	ft_putnbr((i - 1 - num) % 4);
+	ft_putchar('\n');
+	if ((i - 1 - num) % 4 != 0 && i != 1)
+	{
+		lstdel(tetrilist);
+		ft_putendl("tetricheck: fail");
+		return (0);
 	}
 	if (ret == -1)
 	{
@@ -77,5 +124,6 @@ int				tetrifill(t_tri **tetrilist, const char *file)
 		ft_putendl("close: fail");
 		return (0);
 	}
+	*tetrilist = begin;
 	return (42);
 }

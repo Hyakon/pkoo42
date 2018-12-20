@@ -6,7 +6,7 @@
 /*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:14:23 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/18 11:23:45 by gfestin          ###   ########.fr       */
+/*   Updated: 2018/12/18 17:17:27 by gfestin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_tetri
 
 void				fillit(const char *file);
 int					tetrifill(t_tri **tetrilist, const char *file);
-int					tetricheck(t_tri *tetrilist);
+int					tetricheck(t_tri *tetriminos, int num);
 void				lstdel(t_tri **tetrilist);
 void				del(char **tetri);
 

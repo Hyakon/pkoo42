@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 08:58:59 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/20 14:56:28 by gfestin          ###   ########.fr       */
+/*   Created: 2018/12/20 15:25:08 by gfestin           #+#    #+#             */
+/*   Updated: 2018/12/20 15:25:24 by gfestin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** Description : Affiche la chaine s sur la sortie standard.
-** Param. #1 : La chaine de caractères à afficher.
-** Retour : Rien.
-*/
+#include "fillit.h"
 
-#include "libft.h"
-
-void	ft_putstr(const char *s)
+void		del(char **tetri)
 {
-	int		i;
+	int	i;
 
-	if (s == NULL)
-		return ;
 	i = 0;
-	while (s[i])
+	while (i < 4)
 	{
-		ft_putchar(s[i]);
+		if (tetri[i] != NULL)
+			free(tetri[i]);
 		i++;
 	}
+}
+
+void		lstdel(t_tri **tetrilist)
+{
+	t_tri	*tmp;
+	t_tri	*next;
+
+	if (*tetrilist == NULL)
+		return ;
+	tmp = *tetrilist;
+	next = (*tetrilist)->next;
+	while (next != NULL)
+	{
+		del(tmp->tetri);
+		free(tmp);
+		tmp = next;
+		next = next->next;
+	}
+	del(tmp->tetri);
+	free(tmp);
+	*tetrilist = NULL;
 }
