@@ -1,12 +1,30 @@
+/*
 
-/* 
+main.c
+
+  ouvre le fichier donner en argument argv[1] Sinon retourne erreur
+
+fillit.c
+
+
+
+tetri.c
+
+list.c
+
+verif.c
+
+*/
+
+
+/*
    t_tri			add_last(t_tri *tetrilist)
    {
    t_tri *tmp;
 
    tmp = new_tetri();
    if (tmp == NULL)
-   {	
+   {
    lstdel(&tmp);
    ft_putendl("new_tetri: fail");
    return (0);

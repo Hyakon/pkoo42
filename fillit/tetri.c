@@ -3,16 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   tetri.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gfestin <gfestin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 08:17:14 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/20 15:11:41 by gfestin          ###   ########.fr       */
+/*   Updated: 2019/01/08 15:50:27 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <fcntl.h>
 
+
+/*
+	Cree un nouveau tetriminos, alloue sa memoire, et renvoie
+	l'emplacement memoire alloue
+	Alloue au tetriminos un tableau de 4 pointeurs sur char
+*/
 static t_tri	*new_tetri(void)
 {
 	t_tri	*newt;
@@ -35,6 +41,13 @@ static t_tri	*new_tetri(void)
 	return (newt);
 }
 
+
+/*
+	Cree la lite de tetrimos dans tetrilist
+	et check que les tetriminos sont bon
+	.num le nombre de tetriminos
+	.i	 le nombre de ligne / numero de ligne
+*/
 static int		tetrifillit(int *i, t_tri **tetrilist, t_tri **begin, char *line,
 		int *num)
 {
@@ -74,6 +87,13 @@ static int		tetrifillit(int *i, t_tri **tetrilist, t_tri **begin, char *line,
 	}
 	return (42);
 }
+
+/*
+	open le file et recupere le fd.
+	.num  le nombre de tetriminos
+	.i		le nombre de ligne
+
+*/
 
 int				tetrifill(t_tri **tetrilist, const char *file)
 {

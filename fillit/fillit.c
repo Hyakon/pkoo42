@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfestin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gfestin <gfestin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 09:20:36 by gfestin           #+#    #+#             */
-/*   Updated: 2018/12/20 15:26:38 by gfestin          ###   ########.fr       */
+/*   Updated: 2019/01/08 16:56:06 by pkoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,32 @@ char **is_valid(char **mat, char **tetri)
 	autre tetriminos de la liste sauf celui qu'on vient de placer en premier.
 
 */
+
+// t_tri** filltab(t_tri *tetrilist)
+// {
+// 	t_tri *placed[26];
+// 	int i;
+//
+// 	i = 0;
+// 	while (tetrilist)
+// 	{
+// 		placed[i] = tetrilist;
+// 		i++;
+// 		tetrilist	= tetrilist->next;
+// 	}
+// 	return (placed);
+// }
+
+point nextempty(**map, int *i, int *j)
+{
+	return (i,j);
+}
+
 void	backtrack(t_tri *tetrilist)
 {
 	char	matmp[26 * 4][26 * 4];
 	char	matfi[26 * 4][26 * 4];
+	t_tri *placed[26];
 	t_tri	*tmp;
 	int		max;
 
